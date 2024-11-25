@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Prof; 3F; 13/11/24; Indovina il numero");
         }
     }
 }
