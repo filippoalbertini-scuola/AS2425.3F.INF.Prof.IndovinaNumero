@@ -7,7 +7,7 @@ namespace AS2425._3F.INF.Prof.IndovinaNumero
         // Griglia Valutazione
         //2 voto di partenza
         //1 scrittura codice corretta(indentazione, intestazione, buon codice (nomi variabili, ecc), ...)
-        //5 Indovina un numero inventato dal calcolatore fra 1 e 20 in un massimo possibile di 15 tentativi; alla fine indicare se il numero è stato indovinato o meno e in quanti tentativi
+        //ok 5 Indovina un numero inventato dal calcolatore fra 1 e 20 in un massimo possibile di 15 tentativi; alla fine indicare se il numero è stato indovinato o meno e in quanti tentativi
         //1,5 Indica per ognuno dei tentativi dell'utente se il numero indicato dall'utente è entro il 20% del numero da indovinare come "fuochino" o altrimenti "acqua"
         //0,5 Se indovina il numero in 2 tentativi assegna 5 punti, in 3 tentativi 4 punti, 5 tentativi 3 punti o altrimenti 0 punti e alla fine indicare il numero di punti vinti
         
@@ -23,7 +23,9 @@ namespace AS2425._3F.INF.Prof.IndovinaNumero
             bool numeroIndovinato = false; 
             int numeroTentativi = 0;
 
-            int numeroCasuale = r.Next(1, 20+1); 
+            int numeroCasuale = r.Next(1, 20+1);
+
+            double scartoFuochino = numeroCasuale * 20 / 100.0;
 
             // TODO: remove
             Console.WriteLine($"Numero generato {numeroCasuale}");
@@ -43,6 +45,11 @@ namespace AS2425._3F.INF.Prof.IndovinaNumero
                     numeroIndovinato = true;
                     break;
                 }
+
+                if ((numeroUtente >= (numeroCasuale - scartoFuochino)) && (numeroUtente <= (numeroCasuale + scartoFuochino)))
+                    Console.WriteLine("Fuochino\n");
+                else
+                    Console.WriteLine("Acqua\n");
 
                 Console.WriteLine("Ritenta\n");
             }
