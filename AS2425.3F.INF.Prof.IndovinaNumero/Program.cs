@@ -8,14 +8,15 @@ namespace AS2425._3F.INF.Prof.IndovinaNumero
         //2 voto di partenza
         //1 scrittura codice corretta(indentazione, intestazione, buon codice (nomi variabili, ecc), ...)
         //ok 5 Indovina un numero inventato dal calcolatore fra 1 e 20 in un massimo possibile di 15 tentativi; alla fine indicare se il numero è stato indovinato o meno e in quanti tentativi
-        //1,5 Indica per ognuno dei tentativi dell'utente se il numero indicato dall'utente è entro il 20% del numero da indovinare come "fuochino" o altrimenti "acqua"
+        //ok 1,5 Indica per ognuno dei tentativi dell'utente se il numero indicato dall'utente è entro il 20% del numero da indovinare come "fuochino" o altrimenti "acqua"
         //0,5 Se indovina il numero in 2 tentativi assegna 5 punti, in 3 tentativi 4 punti, 5 tentativi 3 punti o altrimenti 0 punti e alla fine indicare il numero di punti vinti
         
         static void Main(string[] args)
         {
             Console.WriteLine("Prof; 3F; 13/11/24; Indovina il numero");
 
-            const int nTentativiMax = 15; 
+            const int nTentativiMax = 15;
+            int punti;
 
             int numeroUtente; 
             Random r = new Random();
@@ -53,6 +54,16 @@ namespace AS2425._3F.INF.Prof.IndovinaNumero
 
                 Console.WriteLine("Ritenta\n");
             }
+
+            // calcolo punti
+            if (numeroTentativi <= 2) 
+                punti = 5;
+            else if (numeroTentativi <= 3)
+                punti = 4;
+            else if (numeroTentativi <= 5)
+                punti = 3;
+            else
+                punti = 0;
 
             if (numeroIndovinato == true)
             {
